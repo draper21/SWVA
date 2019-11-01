@@ -16,7 +16,7 @@
 				<div class="col-md-7 pl-xl-5">
 					<div class="section-intro">
 			
-						<h2 class="section-intro__subtitle">Testing Github</h2>
+						<h2 class="section-intro__subtitle">Testing Github - V2</h2>
 					</div>
 						<div>
 			<form>
