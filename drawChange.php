@@ -1,7 +1,7 @@
 <?php require_once("header.php");
 require_once('config\config.php');
 session_start();
-
+$target_dir = "swvaengpics";
 if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"])) 
 {
   header("Location: login.php");
@@ -116,7 +116,9 @@ $stmt->fetch();
 <div style = "padding-top: 75px;">
 </div>
 </div>
-
+<p> test 
+<?php echo "<a target='_blank' href='" . (strripos($draw, ".") !== false ? $draw : $target_dir . "/" . $edituser . "." . $draw) . "'>"; ?>
+</p>
 </section>
 
 <?php require_once("footer.php");?>
