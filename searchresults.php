@@ -24,7 +24,7 @@
 
 	while($row = $res->fetch_assoc()) {
 	
-		echo "<tr><td>" . "<a href=" . "drawChange.php" . "?id=" . $row['ID'] . ">" . $row['ID'] . "</a></td><td>";
+		echo "<tr><td>" . $row['ID'] . "</td><td>";
         echo $row['DEPARTMENT'] . "</td><td>";
 		echo $row['EQUIPMENT'] . "</td><td>" . $row['EQID'] . "</td><td>" . $row['EQSUB'] . "</td><td>";
 		echo $row['SIZE'] . "</td><td>" . $row['NUMBER'] . "</td><td>" . $row['EXTENSION'] . "</td><td>"; 
