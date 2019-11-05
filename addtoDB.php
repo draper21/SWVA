@@ -34,7 +34,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                        <br>
                        <br>
                        <label for="date">Date</label>
-                      <input type="date" class="form-control" name="date" id="datepicker" value="today();" required='required'>
+                      <input type="date" class="form-control" name="date" id="datepicker" value="<?php echo date('Y-m-d'); ?>" required='required'>
                       <br>
                       <label for="exampleFormControlTextarea1" style="padding-top: 15px;">Size</label>
                       <textarea class="form-control" name="size" rows="3" placeholder="ex: D or 3A"></textarea>

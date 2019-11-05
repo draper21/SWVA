@@ -34,7 +34,8 @@ if (mysqli_connect_errno()) {
 }
 
 //check if checkbox is not disabled to change file 
-if($echeckbox == "on") {
+//if($echeckbox == "on") {
+if ($_FILES['edraw']['size'] > 0) {
 //delete current file from swvaengpics
 
 // Check file size
@@ -64,6 +65,8 @@ if ($uploadOk == 0) {
 
 $edraw = $target_file;
 
+
+
 $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."', 
  VENDOR ='". $evendor."', `VENDOR DWG NO` = '". $evendwg ."', `VENDOR JOB NO` = '". $evenjob ."',
  EXTENSION = '" . $eext."', REVISION ='". $erevision."', DATE ='". $edate."', WHO ='". $ewho."', DESCRIPTION ='". $edesc."',
@@ -75,15 +78,26 @@ $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."'
  //end of if($echeckbox != NULL) {
 }
 //else - user does not want to change file
-if (is_null($echeckbox)) {
-      $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."',
-	  	VENDOR ='". $evendor."', `VENDOR DWG NO` = '". $evendwg ."', `VENDOR JOB NO` = '". $evenjob ."',
-        EXTENSION = '" . $eext."', REVISION ='". $erevision."', DATE ='". $edate."', WHO ='". $ewho."', DESCRIPTION ='". $edesc."',
-        EQID ='". $eeqid."', EQSUB ='". $eeqsub."' WHERE ID = '".$edituser."'";
-        $stmt = $database->prepare($query);
-        $stmt->execute();
-        $res = $stmt->get_result();
-   //     echo "inside else";
+//if (is_null($echeckbox)) {
+//      $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."',
+//	  	VENDOR ='". $evendor."', `VENDOR DWG NO` = '". $evendwg ."', `VENDOR JOB NO` = '". $evenjob ."',
+//        EXTENSION = '" . $eext."', REVISION ='". $erevision."', DATE ='". $edate."', WHO ='". $ewho."', DESCRIPTION ='". $edesc."',
+//        EQID ='". $eeqid."', EQSUB ='". $eeqsub."' WHERE ID = '".$edituser."'";
+//        $stmt = $database->prepare($query);
+//        $stmt->execute();
+//        $res = $stmt->get_result();
+//   //     echo "inside else";
+//}
+
+if ($_FILES['edraw']['size'] == 4) {
+	$query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."',
+		VENDOR ='". $evendor."', `VENDOR DWG NO` = '". $evendwg ."', `VENDOR JOB NO` = '". $evenjob ."',
+	  EXTENSION = '" . $eext."', REVISION ='". $erevision."', DATE ='". $edate."', WHO ='". $ewho."', DESCRIPTION ='". $edesc."',
+	  EQID ='". $eeqid."', EQSUB ='". $eeqsub."' WHERE ID = '".$edituser."'";
+	  $stmt = $database->prepare($query);
+	  $stmt->execute();
+	  $res = $stmt->get_result();
+ //     echo "inside else";
 }
 
  echo "Success";

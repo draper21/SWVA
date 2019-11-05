@@ -103,9 +103,7 @@ $stmt->fetch();
      <td><input class="form-control" type="text" size = "50" id="edesc" name="edesc" value = "<?php echo $description;?>"></td> 
      <td><input class="form-control" type="text" size = "2" id="eeqid" name="eeqid" value = "<?php echo $eqid;?>"></td> 
      <td><input class="form-control" type="text" size = "10" id="eeqsub" name="eeqsub" value = "<?php echo $eqsub;?>"></td> 
-     <td><input class="form-control-file" type="file" id="edraw" size = "15" name="edraw" placeholder = "test" value="test" disabled>
-         <input type="checkbox" name="toggle" id="check" onchange="document.getElementById('edraw').disabled = !this.checked;"/>Edit File?<br>
-     </td>
+     <td><label class="btn active btn"><input class="form-control-file" type="file" id="edraw" size = "15" name="edraw" hidden>Choose File</label></td>
     </tr>
 </tbody>
 </table>
