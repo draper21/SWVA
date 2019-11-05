@@ -116,9 +116,27 @@ $stmt->fetch();
 <div style = "padding-top: 75px;">
 </div>
 </div>
-<p> test 
-<?php echo "<a target='_blank' href='" . (strripos($draw, ".") !== false ? $draw : $target_dir . "/" . $edituser . "." . $draw) . "'>"; ?>
-</p>
+
+<div class="row justify-content-center">
+  <div class="col-sm-4">
+  <center>
+  <h4> Current Drawing </h4>
+    <?php //echo "<a target='_blank' href='" . (strripos($draw, ".") !== false ? $draw : $target_dir . "/" . $edituser . "." . $draw) . "'>"; 
+      if ((strripos(($draw), "jpg") !== false) || (strripos(($draw), "jpeg") !== false) || (strripos(($draw), "png") !== false) || (strripos(($draw), "gif") !== false))  {
+    			echo '<img width="250" height="250" border="0" src="'.
+    			(strripos($draw, ".") !== false ? $draw : $target_dir . "/" . $edituser . "." . $draw) .'" class ="img-responsive"
+    			alt = "Either No Image or PDF"/></a>' . "</td></tr>";
+    		}
+    		//if the drawing is a pdf, 
+    		if (strripos(($draw), "pdf") != false) {
+          echo
+          (strripos($draw, ".") !== false ? "<iframe src=\"$draw\" width=\"250\" style=\"height:250\"></iframe>" : "<iframe src=\"$edituser.pdf\" width=\"250\" style=\"height:250\"></iframe>");
+    		}		
+    ?>
+  </center>
+  </div>
+</div>
+
 </section>
 
 <?php require_once("footer.php");?>
