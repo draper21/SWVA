@@ -86,7 +86,8 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                 </div>
                   <p>Upload Drawing: .pdf, .jpeg, .png, etc.</p>
                 <!-- FILE UPLOAD -->
-                <label class ="btn active btn">Browse<input type="file" name="drawing" hidden></label>
+                <!--<label class ="btn active btn">Browse<input type="file" name="drawing" hidden></label>-->
+                <label class="btn active btn"><input class="form-control-file" type="file" name="drawing" hidden><span class = "filetext">Select File</span></label>
                 <!-- END FILE UPLOAD -->
 
                 <div class="form-group text-center text-md-right">
@@ -108,6 +109,11 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 <script>
 
 $(document).ready(function() {
+
+  $(".form-control-file").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".filetext").addClass("selected").html(fileName);
+    });
 
   $.ajax({
 					url: "dropdown.php",
@@ -131,11 +137,6 @@ $(document).ready(function() {
         });
 
         $("#datepicker").datepicker("setDate", new Date());
-
-
-
-
-
 
       //  $.ajax({
 			//		url: "dropdown2.php",

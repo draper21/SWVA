@@ -30,9 +30,7 @@ $stmt->fetch();
 ?>
 
 <header>
-		<a class="navbar-brand" href="login.php">
-			<img src="img/logo.png" alt="">
-		</a>
+		
     <div class="container">
     <br>
       <h4 class="section-intro__subtitle"><center>Edit Drawing</center></h4>
@@ -103,7 +101,9 @@ $stmt->fetch();
      <td><input class="form-control" type="text" size = "50" id="edesc" name="edesc" value = "<?php echo $description;?>"></td> 
      <td><input class="form-control" type="text" size = "2" id="eeqid" name="eeqid" value = "<?php echo $eqid;?>"></td> 
      <td><input class="form-control" type="text" size = "10" id="eeqsub" name="eeqsub" value = "<?php echo $eqsub;?>"></td> 
-     <td><label class="btn active btn"><input class="form-control-file" type="file" id="edraw" size = "15" name="edraw" hidden>Choose File</label></td>
+     <td>
+        <label class="btn btn-sm"><input class="form-control-file" type="file" id="edraw" name="edraw" hidden><span class = "filetext">Select</span></label>
+    </td>
     </tr>
 </tbody>
 </table>
@@ -140,8 +140,17 @@ $stmt->fetch();
 <?php require_once("footer.php");?>
 
 <script>
-
 $(document).ready(function() {
+
+      $(".form-control-file").on("change", function() {
+      var fileName = $(this).val().split("\\").pop();
+      $(this).siblings(".filetext").addClass("selected").html(fileName);
+    });
+      //$(".custom-file-input").on("change", function() {
+      //  var fileName = $(this).val().split("\\").pop();
+      //  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+      //});
+
 
     $.ajax({
 			url: "dropdown.php",

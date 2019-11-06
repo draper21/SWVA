@@ -26,7 +26,7 @@
 </head>
 	<header>
     
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top justify-content-between nav item">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between nav item">
   <!-- Brand/logo -->
     <img class="float-left" src="img/logo.png" alt="logo" style="width:40px;" >
   <!-- Links -->
