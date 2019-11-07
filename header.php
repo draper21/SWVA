@@ -33,7 +33,8 @@
   <ul class="navbar-nav">
     
 <?php 
-session_start();
+require_once('config\config.php');
+//session_start();
 
 
 if (isset($_SESSION["admin"])) {

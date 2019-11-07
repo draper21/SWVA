@@ -1,5 +1,5 @@
 <?php
-	 session_start();
+	 //session_start();
 	 require_once('config\config.php');
     
 	// create a new object of type mysqli called $db to interact with our database connection 

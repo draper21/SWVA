@@ -1,9 +1,9 @@
 <?php
-	session_start(); 
+	//session_start(); 
 	require_once('config\config.php');
 	$deptID = $_SESSION['deptID'];
 	$equipID =  $_SESSION['dropdown2'];
-    $eqdescID = $_SESSION['dropdown3'];
+    //$eqdescID = $_SESSION['dropdown3'];
 	$eqSUB = $_SESSION['dropdown2sub']; 
 	$target_dir = "swvaengpics";   
 	

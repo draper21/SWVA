@@ -1,6 +1,6 @@
 <?php
 require_once('config\config.php');
-session_start();
+//session_start();
 $edituser = $_SESSION['editID'];
 $drawing = NULL;
 

@@ -1,11 +1,11 @@
 <?php
-	session_start(); 
+	//session_start(); 
 	require_once('config\config.php');
 	
 	//print_r($_SESSION);
 	$deptID = $_SESSION['deptID'];
 	$equipID =  $_SESSION['dropdown2'];
-	$eqdescID = $_SESSION['dropdown3'];
+	//$eqdescID = $_SESSION['dropdown3'];
 	$target_dir = "swvaengpics";
 
 	@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

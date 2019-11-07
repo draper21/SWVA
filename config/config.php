@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+//already defined in header.php
 
 define( 'DB_HOST', 'localhost');
 define( 'DB_USER', 'root');

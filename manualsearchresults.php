@@ -1,8 +1,8 @@
 <?php
-	 session_start(); 
+	 //session_start(); 
 	 require_once('config\config.php');
-	 $_SESSION['wildcard'] = $_GET['wildcard'];
-	 $wildcard = $_GET['wildcard'];
+	 //$_SESSION['wildcard'] = $_GET['wildcard'];
+	 //$wildcard = $_GET['wildcard'];
 	 $target_dir = "swvaengpics";
 	 $deptID =  $_GET['dropdown1'];
 	

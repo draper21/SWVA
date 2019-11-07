@@ -1,6 +1,7 @@
-<?php require_once("header.php");
+<?php 
+require_once("header.php");
 require_once('config\config.php');
-session_start();
+//session_start();
 $target_dir = "swvaengpics";
 if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"])) 
 {

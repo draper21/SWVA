@@ -4,7 +4,7 @@
 <section class="about section-margin mb-7 text-center" id="putcontent" style = "padding-top: 80px; min-height: 70vh;">
 
 <?php
-session_start();
+//session_start();
 $_SESSION['dropdownadd'] = $_POST['dropdown'];
 $newFileName = $_POST['number'];
 $target_dir = "swvaengpics/";

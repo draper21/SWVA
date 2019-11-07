@@ -1,4 +1,6 @@
-<?php require_once("header.php"); 
+<?php 
+require_once('config\config.php');
+require_once("header.php"); 
 //session_start();
 
 if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"])) 
