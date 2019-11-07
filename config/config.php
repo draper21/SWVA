@@ -1,8 +1,12 @@
 <?php
 
 session_start();
-//already defined in header.php
 
+//Global Variables:
+//$target_dir = "swvaengpics";
+
+
+//Constants for database
 define( 'DB_HOST', 'localhost');
 define( 'DB_USER', 'root');
 define( 'DB_PASS', '');
