@@ -19,7 +19,7 @@ $edesc = $_POST['edesc'];
 $eeqid = $_POST['eeqid'];
 $eeqsub = $_POST['eeqsub'];
 $edraw = $_FILES['edraw']['name'];
-$echeckbox = $_POST['toggle'];
+//$echeckbox = $_POST['toggle'];
 
 //file error handling
 $target_dir = "swvaengpics/";
@@ -51,6 +51,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 	$uploadOk = 0;
 }
 $target_file = $target_dir . $edituser . "." . $imageFileType;
+//$target_file = $target_dir . $edituser . "." . $imageFileType;
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
 	echo "Your file was not saved to the server.";
@@ -63,8 +64,8 @@ if ($uploadOk == 0) {
 	}
 }
 
-$edraw = $target_file;
-
+//$edraw = $target_file;
+$edraw = $imageFileType;
 
 
 $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."', 

@@ -74,14 +74,6 @@ $drawing = "swvaengpics/" . $_FILES['drawing']['name'];
 	//print_r($target_file);
 	$getid = mysqli_insert_id($database);
 
-	//$query2 = "UPDATE sheet1 SET DRAW = ? WHERE ID = ?";
-	//$stmt2 = $database->prepare($query2);
-	//$stmt2->bind_param('ss', $target_file, $getid);
-
-	//if($stmt2->execute()) {
-	//	$success2 = true;
-	//}
-
 	$stmt->free_result(); 
 //	$stmt2->free_result();
 	$database->close(); 
