@@ -45,7 +45,7 @@ if ($_FILES["edraw"]["size"] > 10485760) {
 } 	
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" && $imageFileType != "pdf") {
+&& $imageFileType != "gif" && $imageFileType != "pdf" && $imageFileType != "tif") {
 	echo "Only JPG, JPEG, PNG, PDF, & GIF files are allowed.";
 	$checkFile = false;
 	$uploadOk = 0;
