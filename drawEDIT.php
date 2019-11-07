@@ -27,7 +27,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     <div class="media contact-info">
       <span class="contact-info__icon"><i class="lnr lnr-enter"></i></span>
       <div class="media-body">
-        <h2>Edit Drawing</h2>
+        <h2>Search/Edit Drawing</h2>
         <p>Welcome<?php echo " " . $_SESSION["empID"] . "!"; ?></p>
       </div>
     </div>

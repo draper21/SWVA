@@ -46,10 +46,9 @@ else {
 //print_r($_SESSION);
 
 if($_SESSION["admin"] == 1) {
-   echo '<li class="nav-item"><a class="nav-link" href="addtoDB.php">Add Drawing</a></li>';
-   echo '<li class="nav-item"><a class="nav-link" href="drawEDIT.php">Edit Drawing</a></li>';
-   echo '<li class="nav-item"><a class="nav-link" href="search.php">Search</a></li>';
+   echo '<li class="nav-item"><a class="nav-link" href="drawEDIT.php">Search/Edit</a></li>';
    echo	'<li class="nav-item"><a class="nav-link" href="manualsearch.php">Custom Search</a></li>';
+   echo '<li class="nav-item"><a class="nav-link" href="addtoDB.php">Add Drawing</a></li>';
    echo	'<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
 }
 
