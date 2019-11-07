@@ -3,7 +3,7 @@
 	 require_once('config\config.php');
 	 $_SESSION['wildcard'] = $_GET['wildcard'];
 	 $wildcard = $_GET['wildcard'];
-
+	 $target_dir = "swvaengpics";
 	 $deptID =  $_GET['dropdown1'];
 	
 		@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -29,16 +29,21 @@
 		echo $row['REVISION'] . "</td><td>" . $row['DATE'] . "</td><td>" . $row['WHO'] . "</td><td>";
 		echo $row['DESCRIPTION'] . "</td><td>";
 		
-		echo '<a target="_blank" href="'.$row['DRAW'].'">';
+		echo "<a target='_blank' href='" . (strripos($row['DRAW'], ".") !== false ? $row['DRAW'] : $target_dir . "/" . $row['ID'] . "." . $row['DRAW']) . "'>";
 		//if the drawing is an image, display
-		if ((strripos(($row['DRAW']), "jpg") != false) || (strripos(($row['DRAW']), "jpeg") != false) || (strripos(($row['DRAW']), "png") != false) || (strripos(($row['DRAW']), "gif") != false))  {
-			echo '<img width="50" height="50" border="0" src="'.$row['DRAW'].'" class ="img-responsive"  title = "Click to enlarge in new tab" 
+		if ((strripos(($row['DRAW']), "jpg") !== false) || (strripos(($row['DRAW']), "jpeg") !== false) || (strripos(($row['DRAW']), "png") !== false) || (strripos(($row['DRAW']), "gif") !== false))  {
+			echo '<img width="50" height="50" border="0" src="'.
+			(strripos($row['DRAW'], ".") !== false ? $row['DRAW'] : $target_dir . "/" . $row['ID'] . "." . $row['DRAW']) .'" class ="img-responsive"  title = "Click to enlarge in new tab" 
 			alt = "Either No Image or PDF"/></a>' . "</td></tr>";
 		}
 		//if the drawing is a pdf, 
 		if (strripos(($row['DRAW']), "pdf") != false) {
 			echo "Open PDF";
-		}		
+		}	
+		//if the drawing is a tif, 
+		if (strripos(($row['DRAW']), "tif") != false) {
+			echo "Download TIF";
+		}	
 	}
     
 	$stmt->free_result(); 

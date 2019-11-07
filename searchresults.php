@@ -43,6 +43,10 @@
 		if (strripos(($row['DRAW']), "pdf") != false) {
 			echo "Open PDF";
 		}		
+		//if the drawing is a tif, 
+		if (strripos(($row['DRAW']), "tif") != false) {
+			echo "Download TIF";
+		}	
 
   	}
 	
