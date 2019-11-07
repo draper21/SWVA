@@ -146,12 +146,7 @@ $(document).ready(function() {
       var fileName = $(this).val().split("\\").pop();
       $(this).siblings(".filetext").addClass("selected").html(fileName);
     });
-      //$(".custom-file-input").on("change", function() {
-      //  var fileName = $(this).val().split("\\").pop();
-      //  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-      //});
-
-
+      
     $.ajax({
 			url: "dropdown.php",
 			method: "GET",

@@ -136,7 +136,7 @@ $(document).ready(function() {
         });
         });
 
-        $("#datepicker").datepicker("setDate", new Date());
+        //$("#datepicker").datepicker("setDate", new Date());
 
       //  $.ajax({
 			//		url: "dropdown2.php",
