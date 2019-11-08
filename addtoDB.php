@@ -17,7 +17,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 
     <div class="container">
       <div class="media contact-info">
-        <span class="contact-info__icon"><i class="lnr lnr-enter"></i></span>
+        <span class="contact-info__icon"><i class="lnr lnr-file-add"></i></span>
         <div class="media-body">
           <h2>Add to database</h2>
           <div class="row align-items-center"> 
@@ -50,7 +50,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                       <textarea class="form-control" name="number" rows="3" placeholder="ex: 6801"></textarea>
                       <br>
                       <label for="exampleFormControlTextarea1">Extension</label>
-                      <textarea class="form-control" name="extension" rows="3" placeholder="ex: DJD"></textarea>
+                      <textarea class="form-control" name="extension" rows="3" placeholder="ex: 1 or A"></textarea>
                     </div>
                   </div>
                   <div class="col-lg-6">

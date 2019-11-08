@@ -13,20 +13,17 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     <div class="container-fluid">
 
         <!--<h4 class="section-intro__subtitle" style="padding-top: 40px;"><center>SWVA Engineering Database</center></h4>-->
-
-  
     </header>
 
     <section class="section-margin" style="min-height: 50vh;">
 
         <div class="container-fluid">
             <div class="media contact-info">
-                <span class="contact-info__icon"><i class="lnr lnr-enter"></i></span>
+                <span class="contact-info__icon"><i class="lnr lnr-magnifier"></i></span>
                 <div class="media-body">
                     <h2>Manual Search</h2>
                 </div>
             </div>
-
 
             <div class="row" style="padding-top: 20px;">
                 <div class="col-lg-5">

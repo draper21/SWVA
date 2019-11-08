@@ -21,15 +21,15 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     </div>  
   </div> 
 
-    <div class="col-sm-4" align="center">
+  <div class="col-sm-4" align="center">
+    <br>
+    <br>
     <div class="media contact-info">
-      <span class="contact-info__icon"><i class="lnr lnr-enter"></i></span>
-      <div class="media-body">
+      <span class="contact-info__icon"><i class="lnr lnr-magnifier"></i></span>
         <h2>Drawing Search</h2>
-        <p>Welcome<?php echo " " . $_SESSION["empID"] . "!"; ?></p>
-      </div>
+        <p class = "pt-3 pl-4">Welcome<?php echo " " . $_SESSION["empID"] . "!"; ?></p>
     </div>
-   </div>
+    </div>
 
     <!--END DIV CLASS ROW JUSTIFY CONTENT CENTER -->
 
