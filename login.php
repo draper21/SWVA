@@ -22,7 +22,7 @@
 			<form>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Username</label>
-					<input type="username" name="username" id="username" class="form-control transparent-input"
+					<input type="username" name="username" id="username" class="form-control"
 						id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username" required='required' style="width:50%;max-width:80%;">
 				</div>
 				<div class="form-group">
@@ -33,7 +33,7 @@
 				<button id="submit" type="submit" class="btn btn-primary">Login</button>
 				<div class="text-center mt-4" id="errordiv">
 					<!--bootstrap alert danger to show red box with text -->
-					<div class="alert alert-danger">
+					<div class="alert alert-danger" style="width:50%;max-width:80%;">
 						<span class="txt1">
 							<p>Invalid Username and/or Password</p>
 						</span>
