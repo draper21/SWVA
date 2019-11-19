@@ -39,7 +39,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     <div class="col-sm-2" align="center">
     <br>
     <br>
-    <button type="button" class="btn btn-warning btn-md" onclick="window.location.href ='search.php';">Reset</button>
+    <button type="button" class="btn btn-warning btn-md" onclick="window.location.href ='drawEDIT.php';">Reset</button>
    
     </div>
     <!-- END RESET BUTTON -->

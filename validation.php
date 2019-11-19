@@ -1,8 +1,11 @@
 <?php
 	require_once('config\config.php');
 
-    $username=$_POST['username']; 
-	$password=$_POST['password'];
+	//create a new object of type mysqli called $database to interact with our database connection 
+
+	//elminate special characters
+    $username = mysqli_real_escape_string($database, $_POST['username']); 
+	$password = mysqli_real_escape_string($database, $_POST['password']);
 	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 	//echo $hashed_password;
 
@@ -14,12 +17,7 @@
 		echo '<p>You have not entered a username and/or password.<br/> Please try again.</p>';
 		exit; 
 	} 
-	//create a new object of type mysqli called $database to interact with our database connection 
-	@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-	if (mysqli_connect_errno()) {
-	  echo '<p>Error: Could not connect to database!<br/> Please try again later.</p>';
-	  exit;
-	} 
+	
 	
 		//Find the username and password fields from the table login where username and password = the user input
     $query = "SELECT emp_Username, emp_Password, isAdmin  FROM employee WHERE emp_Username = ?";
@@ -29,7 +27,9 @@
         $stmt->store_result();
 	    $stmt->bind_result($usernamedb, $passworddb, $isAdmindb);
 	    $stmt->fetch();
-        
+		
+		
+
 		if (($usernamedb == $username) && (password_verify($password, $passworddb)) && ($isAdmindb == 1))
 		{
 			$_SESSION["empID"] = $usernamedb;
