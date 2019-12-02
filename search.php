@@ -77,7 +77,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 
       <!-- DROPDOWN 3 -->
       <div class="col-sm-2">
-        <form>
+        <form onkeydown="return event.key != 'Enter';">
           <h4>Filter</h4>
           <input type="text" id="dropdown3" name="dropdown3" class="bg-dark text-white" style="width:100%;" />
         </form>
