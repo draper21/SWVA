@@ -21,7 +21,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
             <div class="media contact-info">
                 <span class="contact-info__icon"><i class="lnr lnr-magnifier"></i></span>
                 <div class="media-body">
-                    <h2>Manual Search</h2>
+                    <h2>Custom Search</h2>
                 </div>
             </div>
 
@@ -33,6 +33,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                                 <h4>Department </h4>
                                 <select name="dropdown" id="dropdown" class="bg-dark text-white" style="width:50%">
                                     <option value="" disabled selected></option>
+                                    <option value="alldept">---All Departments---</option>
                                 </select>
                             </form>
                         </div>
@@ -105,6 +106,9 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
        
 
         $("#dropdown").change(function() {   
+           // var item = $(this);
+            //alert(item.val());
+
             $.ajax({
 					url: "manualsearchresults.php",
 					method: "GET",

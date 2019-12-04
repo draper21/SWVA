@@ -5,7 +5,8 @@
 	 //$wildcard = $_GET['wildcard'];
 	 $target_dir = "swvaengpics";
 	 $deptID =  $_GET['dropdown1'];
-	
+	//echo "DeptID= " . $deptID;
+
 		@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 		if (mysqli_connect_errno()) {
@@ -13,13 +14,29 @@
   		exit; 
 	} 
 	
+	if ($deptID == "alldept"){
+		$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
+			  FROM sheet1";
+	$stmt = $database->prepare($query);
+	//$stmt->bind_param('s', $deptID);
+	$stmt->execute();
+	$res = $stmt->get_result();
+	}
+
+
+	if ($deptID != "alldept") {
 	$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
 			  FROM sheet1 WHERE DEPARTMENT = ?";
 	$stmt = $database->prepare($query);
 	$stmt->bind_param('s', $deptID);
 	$stmt->execute();
 	$res = $stmt->get_result();
+	}
 	
+
+
+
+
 	while($row = $res->fetch_assoc()) {
 	
 		echo "<tr><td>" . $row['ID'] . "</td><td>" . $row['DEPARTMENT'] . "</td><td>";
