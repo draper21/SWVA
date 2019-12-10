@@ -18,6 +18,12 @@ body {
   font-weight: 300;
 }
 
+thead input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3 {

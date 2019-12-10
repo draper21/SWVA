@@ -9,7 +9,19 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 }
 
 ?>
-    
+<style>
+    thead input {
+  width: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+  
+}
+#loading-image {
+    display: none;
+    text-align:center;
+}
+</style>
+
     <div class="container-fluid">
 
         <!--<h4 class="section-intro__subtitle" style="padding-top: 40px;"><center>SWVA Engineering Database</center></h4>-->
@@ -29,6 +41,8 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                 <div class="col-lg-5">
                     <div class="form-group">
                         <div class="col">
+                       
+                            <!--
                             <form>
                                 <h4>Department </h4>
                                 <select name="dropdown" id="dropdown" class="bg-dark text-white" style="width:50%">
@@ -36,6 +50,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                                     <option value="alldept">---All Departments---</option>
                                 </select>
                             </form>
+-->
                         </div>
                     </div>
                     <!-- <form name='wildcard' method="post" class="form-contact">
@@ -61,7 +76,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                 <table class="table table-striped" id="results">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col" id = "id">ID</th>
                             <th scope="col">DEPARTMENT</th>
                             <th scope="col">EQUIPMENT</th>
                             <th scope="col">EQ-ID</th>
@@ -82,10 +97,15 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                     <tbody id="myTable">
                     </tbody>
                 </table>
+                
             </div>
+            <div id="loading-image">
+              <img src="img/loading.gif" class="img-fluid" alt="">
+            </div>  
         </div>
         </div>
         </div>
+        
     </section>
 
     <?php require_once("footer.php");?>
@@ -95,21 +115,28 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 
     $(document).ready(function() {
         
-        $.ajax({
-		url: "dropdown.php",
-		method: "GET",
-		dataType: 'HTML',
-		success: function (data) {
-      $('#dropdown').append(data);
-		}
-        });
+      
+
+    //    $.ajax({
+	//	url: "dropdown.php",
+	//	method: "GET",
+	//	dataType: 'HTML',
+	//	success: function (data) {
+    //  $('#dropdown').append(data);
+	//	}
+    //    });
+    $('#results thead th').each( function () {
+        var title = $(this).text();
+        $(this).html( title );
+        $(this).append( '<input type="text"/>' );
+        //$(this).html( '<input type="text" placeholder="'+title+'" />' );
        
+    } );
 
-        $("#dropdown").change(function() {   
-           // var item = $(this);
-            //alert(item.val());
-
+        
+    $('#loading-image').show();
             $.ajax({
+
 					url: "manualsearchresults.php",
 					method: "GET",
                     //data: {'wildcard' : $('#wildcard').val()},
@@ -117,12 +144,44 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 					dataType: 'HTML',
 					success: function (data) {
                       $('#myTable').empty().append(data);
-                      //$('#results').DataTable().destroy();
-                      $('#results').DataTable();
-    
-					}
+                      var table = $('#results').DataTable({
+                        "order": [],
+                        "columnDefs": [ {
+                        "targets": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                        "orderable": false
+                        } ]
+                      });
+                     
+                      table.columns().every( function () {
+                          
+        var that = this;
+ 
+        $( 'input', this.header() ).on( 'keyup change clear', function () {
+            if ( that.search() !== this.value ) {
+                that
+                    .search( this.value )
+                    .draw();
+                  }
+              } );
+          } );
+
+
+
+
+                  //    $('.dataTables_filter input').unbind().bind('keyup', function() {
+                  //     var searchTerm = this.value.toLowerCase(),
+                  //         regex = '\\b' + searchTerm + '\\b';
+                  //     table.rows().search(regex, true, false).draw();
+                  //  })
+					},
+                    complete: function(){
+                     $('#loading-image').hide();
+                    }
             });
-        });
+
+     
+
+ 
     });
 
   </script>

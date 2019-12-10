@@ -1,8 +1,6 @@
 <?php
 	require_once('config\config.php');
 
-	//create a new object of type mysqli called $database to interact with our database connection 
-
 	//elminate special characters
     $username = mysqli_real_escape_string($database, $_POST['username']); 
 	$password = mysqli_real_escape_string($database, $_POST['password']);
@@ -18,7 +16,6 @@
 		exit; 
 	} 
 	
-	
 		//Find the username and password fields from the table login where username and password = the user input
     $query = "SELECT emp_Username, emp_Password, isAdmin  FROM employee WHERE emp_Username = ?";
         $stmt = $database->prepare($query);
@@ -28,8 +25,6 @@
 	    $stmt->bind_result($usernamedb, $passworddb, $isAdmindb);
 	    $stmt->fetch();
 		
-		
-
 		if (($usernamedb == $username) && (password_verify($password, $passworddb)) && ($isAdmindb == 1))
 		{
 			$_SESSION["empID"] = $usernamedb;
