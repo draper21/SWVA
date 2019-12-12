@@ -33,8 +33,7 @@ if (mysqli_connect_errno()) {
   exit; 
 }
 
-//check if checkbox is not disabled to change file 
-//if($echeckbox == "on") {
+
 if ($_FILES['edraw']['size'] > 0) {
 //delete current file from swvaengpics
 
@@ -75,8 +74,7 @@ $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."'
  $stmt = $database->prepare($query);
  $stmt->execute();
  $res = $stmt->get_result();
- //echo "inside if";
- //end of if($echeckbox != NULL) {
+
 }
 //else - user does not want to change file
 //if (is_null($echeckbox)) {
@@ -90,7 +88,7 @@ $query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."'
 //   //     echo "inside else";
 //}
 
-if ($_FILES['edraw']['size'] == 4) {
+if ($_FILES['edraw']['size'] == 0) {
 	$query = "UPDATE sheet1 SET DEPARTMENT ='". $edept."', EQUIPMENT ='". $eequip."', SIZE ='". $esize."', NUMBER ='". $enumber."',
 		VENDOR ='". $evendor."', `VENDOR DWG NO` = '". $evendwg ."', `VENDOR JOB NO` = '". $evenjob ."',
 	  EXTENSION = '" . $eext."', REVISION ='". $erevision."', DATE ='". $edate."', WHO ='". $ewho."', DESCRIPTION ='". $edesc."',
