@@ -7,7 +7,7 @@ session_start();
 
 
 //Constants for database
-define( 'DB_HOST', 'localhost');
+define( 'DB_HOST', '127.0.0.1');
 define( 'DB_USER', 'swvaadmin');
 define( 'DB_PASS', 'wearemarshall2006');
 define( 'DB_NAME', 'engineering_new');

@@ -20,6 +20,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     display: none;
     text-align:center;
 }
+
 </style>
 
     <div class="container-fluid">
@@ -73,7 +74,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
             </div>
 
             <div class="row">
-                <table class="table table-striped" id="results">
+                <table class="table table-striped" id="results" style="display:none">
                     <thead>
                         <tr>
                             <th scope="col" id = "id">ID</th>
@@ -133,54 +134,47 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
        
     } );
 
-        
-    $('#loading-image').show();
-            $.ajax({
+$('#loading-image').show();
+        $.ajax({
 
-					url: "manualsearchresults.php",
-					method: "GET",
-                    //data: {'wildcard' : $('#wildcard').val()},
-                    data: {dropdown1 : $(this).val().toLowerCase()},
-					dataType: 'HTML',
-					success: function (data) {
-                      $('#myTable').empty().append(data);
-                      var table = $('#results').DataTable({
-                        "order": [],
-                        "columnDefs": [ {
-                        "targets": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-                        "orderable": false
-                        } ]
-                      });
-                     
-                      table.columns().every( function () {
-                          
-        var that = this;
- 
-        $( 'input', this.header() ).on( 'keyup change clear', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-                  }
-              } );
+				url: "manualsearchresults.php",
+				method: "GET",
+                //data: {'wildcard' : $('#wildcard').val()},
+                //data: {dropdown1 : $(this).val().toLowerCase()},
+				dataType: 'HTML',
+				success: function (data) {
+                  $('#myTable').empty().append(data);
+                  var table = $('#results').DataTable({
+                    "order": [],
+                    "columnDefs": [ {
+                    "targets": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                    "orderable": false
+                    } ]
+                  });
+                  $('#results').show();
+                  table.columns().every( function () {
+                      
+    var that = this;
+
+    $( 'input', this.header() ).on( 'keyup change clear', function () {
+        if ( that.search() !== this.value ) {
+            that
+                .search( this.value )
+                .draw();
+              }
           } );
+      } );
 
-
-
-
-                  //    $('.dataTables_filter input').unbind().bind('keyup', function() {
-                  //     var searchTerm = this.value.toLowerCase(),
-                  //         regex = '\\b' + searchTerm + '\\b';
-                  //     table.rows().search(regex, true, false).draw();
-                  //  })
-					},
-                    complete: function(){
-                     $('#loading-image').hide();
-                    }
-            });
-
-     
-
+              //    $('.dataTables_filter input').unbind().bind('keyup', function() {
+              //     var searchTerm = this.value.toLowerCase(),
+              //         regex = '\\b' + searchTerm + '\\b';
+              //     table.rows().search(regex, true, false).draw();
+              //  })
+				},
+                complete: function(){
+                 $('#loading-image').hide();
+                }
+        });
  
     });
 

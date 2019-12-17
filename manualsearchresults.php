@@ -4,7 +4,7 @@
 	 //$_SESSION['wildcard'] = $_GET['wildcard'];
 	 //$wildcard = $_GET['wildcard'];
 	 $target_dir = "swvaengpics";
-	 $deptID =  $_GET['dropdown1'];
+	// $deptID =  $_GET['dropdown1'];
 	//echo "DeptID= " . $deptID;
 
 		@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
