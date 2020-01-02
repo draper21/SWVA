@@ -15,7 +15,7 @@
 	} 
 	
 //	if ($deptID == "alldept"){
-		$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
+	$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
 			  FROM sheet1";
 	$stmt = $database->prepare($query);
 	//$stmt->bind_param('s', $deptID);

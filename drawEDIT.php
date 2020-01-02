@@ -7,9 +7,13 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 {
   header("Location: login.php");
 }
-
+//if not admin, alert and redirect
+if ($_SESSION["admin"] == 0){
+  echo "<script type='text/javascript'>alert('You are not logged in as an admin.'); window.location.href='search.php';</script>";
+  //header("Location: search.php");
+}
 ?>
-  
+
   <div class="container-fluid">
 
 <section class="section-margin" style="min-height: 50vh;">

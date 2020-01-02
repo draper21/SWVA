@@ -23,26 +23,29 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 
 </style>
 
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <!--<h4 class="section-intro__subtitle" style="padding-top: 40px;"><center>SWVA Engineering Database</center></h4>-->
+    <!--<h4 class="section-intro__subtitle" style="padding-top: 40px;"><center>SWVA Engineering Database</center></h4>-->
     </header>
 
     <section class="section-margin" style="min-height: 50vh;">
 
         <div class="container-fluid">
-            <div class="media contact-info">
-                <span class="contact-info__icon"><i class="lnr lnr-magnifier"></i></span>
-                <div class="media-body">
-                    <h2>Custom Search</h2>
+            <div class="row justify-content-center">
+                <div class="media contact-info">
+                    <span class="contact-info__icon"><i class="lnr lnr-magnifier"></i></span>
+                    <div class="media-body">
+                        <h2>Custom Search</h2>
+                    </div>
                 </div>
             </div>
 
             <div class="row" style="padding-top: 20px;">
                 <div class="col-lg-5">
+                
                     <div class="form-group">
                         <div class="col">
-                       
+
                             <!--
                             <form>
                                 <h4>Department </h4>
@@ -64,9 +67,10 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                     <br>
 
                     <!-- RESET SEARCH VIA DESTROY SESSION VARIABLES -->
+                   
                     <button type="submit" class="btn btn-primary ml-3"
                         onclick="window.location.href ='manualsearch.php';" style="">Reset</button>
-                    <!--</div>-->
+                    
                     <br><br>
 
 
@@ -77,7 +81,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                 <table class="table table-striped" id="results" style="display:none">
                     <thead>
                         <tr>
-                            <th scope="col" id = "id">ID</th>
+                            <th scope="col" id="id">ID</th>
                             <th scope="col">DEPARTMENT</th>
                             <th scope="col">EQUIPMENT</th>
                             <th scope="col">EQ-ID</th>
@@ -98,16 +102,16 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                     <tbody id="myTable">
                     </tbody>
                 </table>
-                
+
             </div>
             <div id="loading-image">
-              <img src="img/loading.gif" class="img-fluid" alt="">
-            </div>  
+                <img src="img/loading.gif" class="img-fluid" alt="">
+            </div>
         </div>
-        </div>
-        </div>
-        
-    </section>
+</div>
+</div>
+
+</section>
 
     <?php require_once("footer.php");?>
     <script src="DataTables/datatables.min.js"></script>
@@ -116,8 +120,6 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 
     $(document).ready(function() {
         
-      
-
     //    $.ajax({
 	//	url: "dropdown.php",
 	//	method: "GET",
@@ -126,15 +128,17 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
     //  $('#dropdown').append(data);
 	//	}
     //    });
-    $('#results thead th').each( function () {
+    
+        $('#results thead th').each( function () {
         var title = $(this).text();
         $(this).html( title );
         $(this).append( '<input type="text"/>' );
         //$(this).html( '<input type="text" placeholder="'+title+'" />' );
        
-    } );
+        });
 
-$('#loading-image').show();
+        $('#loading-image').show();
+
         $.ajax({
 
 				url: "manualsearchresults.php",
@@ -151,25 +155,26 @@ $('#loading-image').show();
                     "orderable": false
                     } ]
                   });
+
                   $('#results').show();
+
                   table.columns().every( function () {
-                      
-    var that = this;
+                    var that = this;
+                    $( 'input', this.header() ).on( 'keyup change clear', function () {
+                        if ( that.search() !== this.value ) {
+                            that
+                                .search( this.value )
+                                .draw();
+                              }
+                          });
+                    });
 
-    $( 'input', this.header() ).on( 'keyup change clear', function () {
-        if ( that.search() !== this.value ) {
-            that
-                .search( this.value )
-                .draw();
-              }
-          } );
-      } );
-
-              //    $('.dataTables_filter input').unbind().bind('keyup', function() {
-              //     var searchTerm = this.value.toLowerCase(),
-              //         regex = '\\b' + searchTerm + '\\b';
-              //     table.rows().search(regex, true, false).draw();
-              //  })
+                //search box uses regular expressions
+                $('.dataTables_filter input').unbind().bind('keyup', function() {
+                 var searchTerm = this.value.toLowerCase(),
+                     regex = '\\b' + searchTerm + '\\b';
+                 table.rows().search(regex, true, false).draw();
+              })
 				},
                 complete: function(){
                  $('#loading-image').hide();

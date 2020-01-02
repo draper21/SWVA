@@ -6,10 +6,18 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 {
   header("Location: login.php");
 }
+
+//if not admin, alert and redirect
+if ($_SESSION["admin"] == 0){
+  echo "<script type='text/javascript'>alert('You are not logged in as an admin.'); window.location.href='search.php';</script>";
+  //header("Location: search.php");
+}
 ?>
-  
+
+
+
     <div class="container">
-      <h4 class="section-intro__subtitle">Add to database</h4>
+      <h4 class="section-intro__subtitle"></h4>
     </div>
  
 
@@ -127,10 +135,10 @@ $(document).ready(function() {
 
         $('#dropdownID').change(function() {
           $.ajax({
-					url: "dropdown2.php",
-					method: "GET",
-          data: {dropdown1 : $(this).val().toLowerCase()},
-					dataType: 'HTML',
+					  url: "dropdown2.php",
+					  method: "GET",
+            data: {dropdown1 : $(this).val().toLowerCase()},
+					  dataType: 'HTML',
 					success: function (data) {
             $('#equipmentdrop').find('option').remove().end().append(data);
 					}
