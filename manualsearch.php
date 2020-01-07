@@ -78,7 +78,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
             </div>
 
             <div class="row">
-                <table class="table table-striped" id="results" style="display:none">
+                <table class="table table-striped" id="results" style="display:none; table-layout:fixed;">
                     <thead>
                         <tr>
                             <th scope="col" id="id">ID</th>

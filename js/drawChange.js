@@ -14,8 +14,6 @@ $(document).ready(function() {
             $('#edept').append(data);
 			}
         });
-
- 
 });
 
  //submit function to update drawing with new values

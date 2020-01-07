@@ -51,5 +51,4 @@ require_once("config\config.php")
 	</section>
 	
 <?php require_once("footer.php"); ?>
-
 <script src="js/login.js"></script>
