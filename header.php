@@ -16,9 +16,7 @@
 	<link rel="stylesheet" href="vendor/owl-carousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<!--datatables -->
-	<!--<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>-->
+
 
 
 
@@ -31,7 +29,7 @@
 		<!-- Links -->
 		<ul class="navbar-nav">
 
-			<?php 
+<?php 
 require_once('config\config.php');
 //session_start();
 
@@ -43,8 +41,7 @@ else {
 	$_SESSION["admin"] = 0;
 }
 
-//print_r($_SESSION);
-
+//restrict navbar options depending on user login(redirects if they attempt to go there anyways)
 if($_SESSION["admin"] == 1) {
    echo '<li class="nav-item"><a class="nav-link" href="drawEDIT.php">Search/Edit</a></li>';
    echo	'<li class="nav-item"><a class="nav-link" href="manualsearch.php">Custom Search</a></li>';
