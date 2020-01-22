@@ -17,9 +17,6 @@
 	<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
 
-
-
-
 </head>
 <header>
 
@@ -54,7 +51,6 @@ if($_SESSION["admin"] == 0) {
 	echo '<li class="nav-item"><a class="nav-link" href="manualsearch.php">Custom Search</a></li>';
 	echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
 }
-
 
 ?>
 		</ul>
