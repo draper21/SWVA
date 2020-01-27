@@ -32,7 +32,7 @@
 
       <!--END DIV CLASS ROW JUSTIFY CONTENT CENTER -->
 
-      <!-- RESET SEARCH VIA DESTROY SESSION VARIABLES -->
+      <!-- RESET SEARCH  -->
       <div class="col-sm-2" align="center">
         <br>
         <br>
