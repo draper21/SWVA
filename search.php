@@ -67,10 +67,21 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
        </div>
 
        <!-- DROPDOWN 2 SUB -->
-       <div class="col-sm-2">
+       <div class="col-sm-1">
          <form name="dropdown2sub" method="post">
            <h4>Sub Equip</h4>
            <select name="dropdown2sub" id="dropdown2sub" style="width:100%" class="bg-dark text-white">
+             <option value="" disabled selected></option>
+           </select>
+         </form>
+       </div>
+       
+
+       <!-- DROPDOWN EQ ID -->
+       <div class="col-sm-1">
+         <form name="dropdown2eqid" method="post">
+           <h4>Equip ID</h4>
+           <select name="dropdown2eqid" id="dropdown2eqid" style="width:100%" class="bg-dark text-white">
              <option value="" disabled selected></option>
            </select>
          </form>
