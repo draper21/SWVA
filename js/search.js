@@ -38,38 +38,38 @@ $(document).ready(function() {
             }
       });
     
-      $("#dropdown").change(function()
-      {
-        $.ajax({
-            url: "dropdown2.php",
-            method: "GET",
-        data: {dropdown1 : $(this).val().toLowerCase()},
-            dataType: 'HTML',
-            success: function (data) {
-          $('#dropdown2').find('option').remove().end().append(data);
-          $('#dropdown3').find('option').remove().end();
-         // $('#dropdown2sub').find('option').remove().end();
-          $('#dropdown2eqid').find('option').remove().end();
-          //
-         // $('#results').DataTable();
-            }
-      });
-      });
+  //    $("#dropdown").change(function()
+  //    {
+  //      $.ajax({
+  //          url: "dropdown2.php",
+  //          method: "GET",
+  //      data: {dropdown1 : $(this).val().toLowerCase()},
+  //          dataType: 'HTML',
+  //          success: function (data) {
+  //        $('#dropdown2').find('option').remove().end().append(data);
+  //        $('#dropdown3').find('option').remove().end();
+  //        $('#dropdown2sub').find('option').remove().end();
+  //        $('#dropdown2eqid').find('option').remove().end();
+  //        //
+  //       // $('#results').DataTable();
+  //          }
+  //    });
+  //    });
     
-    //  $("#dropdown2").change(function() {
-    //    $.ajax({
-    //        url: "dropdown2sub.php",
-    //        method: "GET",
-    //    data: {dropdown2 : $(this).val().toLowerCase()},
-    //        dataType: 'HTML',
-    //        success: function (data) {
-    //      $('#dropdown2sub').find('option').remove().end().append(data);
-    //      searchResults();
-    //      //
-    //     // $('#results').DataTable();
-    //        }
-    //  });
-    //  });
+   //   $("#dropdown2").change(function() {
+   //     $.ajax({
+   //         url: "dropdown2sub.php",
+   //         method: "GET",
+   //     data: {dropdown2 : $(this).val().toLowerCase()},
+   //         dataType: 'HTML',
+   //         success: function (data) {
+   //       $('#dropdown2sub').find('option').remove().end().append(data);
+   //       searchResults();
+   //       //
+   //      // $('#results').DataTable();
+   //         }
+   //   });
+   //   });
 
   //   $("#dropdown2").change(function() {
   //     $.ajax({
