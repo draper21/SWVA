@@ -1,5 +1,4 @@
 <?php require_once("header.php"); 
-//session_start();
 
 if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"])) 
 {
@@ -61,7 +60,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
          <form name="dropdown2" method="post">
            <h4>Equipment</h4>
            <select name="dropdown2" id="dropdown2" style="width:100%" class="bg-dark text-white">
-             <option value="" disabled selected></option>
+             -<option value="" disabled selected></option>
            </select>
          </form>
        </div>
@@ -73,6 +72,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
            <select name="dropdown2sub" id="dropdown2sub" style="width:100%" class="bg-dark text-white">
              <option value="" disabled selected></option>
            </select>
+           <div class = "d-flex justify-content-end" id="reset1"><span class="lnr lnr-undo"></span></div>
          </form>
        </div>
        
@@ -84,6 +84,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
            <select name="dropdown2eqid" id="dropdown2eqid" style="width:100%" class="bg-dark text-white">
              <option value="" disabled selected></option>
            </select>
+           <div class = "d-flex justify-content-end" id="reset2"><span class="lnr lnr-undo"></span></div>
          </form>
        </div>
 

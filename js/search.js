@@ -121,5 +121,20 @@ $(document).ready(function () {
       });
    });
 
+   //reset sub equip
+   $("#reset1").on("click", function () {
+      $('#dropdown2sub option').prop('selected', function() {
+          return this.defaultSelected;
+      });
+      searchResults();
+  });
+
+  //reset equip id
+  $("#reset2").on("click", function () {
+   $('#dropdown2eqid option').prop('selected', function() {
+       return this.defaultSelected;
+   });
+   searchResults();
+});
 
 });
