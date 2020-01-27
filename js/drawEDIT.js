@@ -43,6 +43,7 @@ $(document).ready(function() {
        $('#dropdown2').find('option').remove().end().append(data);
        $('#dropdown3').find('option').remove().end();
        $('#dropdown2sub').find('option').remove().end();
+       $('#dropdown2eqid').find('option').remove().end();
      }
     });
     });
@@ -58,8 +59,39 @@ $(document).ready(function() {
        searchResults();
      }
     });
+
+    $.ajax({
+      url: "dropdown2eqid.php",
+      method: "GET",
+      data: {
+         dropdown2: $(this).val().toLowerCase()
+      },
+      dataType: 'HTML',
+      success: function (data) {
+         $('#dropdown2eqid').find('option').remove().end().append(data);
+         searchResults();
+      }
+   });
+
     });
     
+    //when user selects equip ID, filter the results
+   $("#dropdown2eqid").change(function () {
+    $.ajax({
+       url: "dropdown4.php",
+       method: "GET",
+       data: {
+          dropdown2eqid: $(this).val().toLowerCase()
+       },
+       dataType: 'HTML',
+       success: function (data) {
+          searchResults3();
+       }
+    });
+ });
+
+
+
       $("#dropdown2sub").change(function() {
         $.ajax({
             url: "dropdown4.php",
@@ -78,5 +110,22 @@ $(document).ready(function() {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
+
+       //reset sub equip
+   $("#reset1").on("click", function () {
+    $('#dropdown2sub option').prop('selected', function() {
+        return this.defaultSelected;
+    });
+    searchResults();
+});
+
+//reset equip id
+$("#reset2").on("click", function () {
+ $('#dropdown2eqid option').prop('selected', function() {
+     return this.defaultSelected;
+ });
+ searchResults();
+});
+
     
     });

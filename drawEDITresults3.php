@@ -5,6 +5,7 @@
 	$equipID =  $_SESSION['dropdown2'];
     //$eqdescID = $_SESSION['dropdown3'];
 	$eqSUB = $_SESSION['dropdown2sub']; 
+	$eqID = $_SESSION['dropdown2eqid'];
 	$target_dir = "swvaengpics";   
 	
 	@$database = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -15,9 +16,9 @@
 	} 
 	
 	$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
-	 FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? AND EQSUB = ?"; 
+	 FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? AND EQSUB = ? OR EQID = ?"; 
     $stmt = $database->prepare($query); 
-    $stmt->bind_param('sss', $deptID, $equipID, $eqSUB);
+    $stmt->bind_param('ssss', $deptID, $equipID, $eqSUB, $eqID);
 	$stmt->execute(); 
 	$res = $stmt->get_result();
 
