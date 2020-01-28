@@ -1,9 +1,7 @@
 <?php
 	//session_start();
 	require_once('config\config.php'); 
-	
-    //print_r($_SESSION);
-    
+
 	$deptID = $_SESSION['deptID'];
 	$equipID =  $_SESSION['dropdown2'];
     //$eqdescID = $_SESSION['dropdown3'];
