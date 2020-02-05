@@ -17,7 +17,7 @@
   		exit; 
 	} 
 	
-	$query = "SELECT DISTINCT EQSUB FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? ORDER BY EQSUB"; 
+	$query = "SELECT DISTINCT EQSUB FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? AND EQSUB != '' ORDER BY EQSUB"; 
     $stmt = $database->prepare($query); 
     $stmt->bind_param('ss', $deptID, $equipID);
 	$stmt->execute(); 

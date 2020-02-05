@@ -17,7 +17,7 @@
 			  FROM sheet1
 			  INNER JOIN department
 			  ON sheet1.department = department.department 
-			  WHERE department.department = ? 
+			  WHERE department.department = ? AND EQUIPMENT != ''
 			  ORDER BY EQUIPMENT"; 
     $stmt = $database->prepare($query); 
     $stmt->bind_param('s', $deptID);
