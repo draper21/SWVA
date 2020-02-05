@@ -24,7 +24,7 @@
 	$res = $stmt->get_result();
 
 
-	echo '<option value = "" selected></option>';
+	echo '<option value = "" disabled selected></option>';
 	while($row = $res->fetch_assoc()) {
         echo "<option>" . $row['EQID'] . "</option>";    
   	}
