@@ -71,17 +71,6 @@ if ($_SESSION["admin"] == 0){
         </form>
       </div>
 
-      <!-- DROPDOWN 2 SUB -->
-      <div class="col-sm-1">
-        <form name="dropdown2sub" method="post">
-          <h4>Sub Equip</h4>
-          <select name="dropdown2sub" id="dropdown2sub" style="width:100%" class="bg-dark text-white">
-            <option value="" disabled selected></option>
-          </select>
-          <div class="d-flex justify-content-end" id="reset1"><span class="lnr lnr-undo"></span></div>
-        </form>
-      </div>
-
        <!-- DROPDOWN EQ ID -->
        <div class="col-sm-1">
         <form name="dropdown2eqid" method="post">
@@ -90,6 +79,17 @@ if ($_SESSION["admin"] == 0){
             <option value="" disabled selected></option>
           </select>
           <div class="d-flex justify-content-end" id="reset2"><span class="lnr lnr-undo"></span></div>
+        </form>
+      </div>
+
+      <!-- DROPDOWN 2 SUB -->
+      <div class="col-sm-1">
+        <form name="dropdown2sub" method="post">
+          <h4>Sub Equip</h4>
+          <select name="dropdown2sub" id="dropdown2sub" style="width:100%" class="bg-dark text-white">
+            <option value="" disabled selected></option>
+          </select>
+          <div class="d-flex justify-content-end" id="reset1"><span class="lnr lnr-undo"></span></div>
         </form>
       </div>
 
