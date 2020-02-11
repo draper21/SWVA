@@ -1,14 +1,5 @@
 $(document).ready(function() {
         
-    //    $.ajax({
-	//	url: "dropdown.php",
-	//	method: "GET",
-	//	dataType: 'HTML',
-	//	success: function (data) {
-    //  $('#dropdown').append(data);
-	//	}
-    //    });
-    
         $('#results tfoot th').each( function () {
         var title = $(this).text();
         $(this).html( title );

@@ -15,7 +15,7 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
         padding: 0px;
         box-sizing: border-box;
   
-}
+    }
     tfoot input {
         width: 100%;
         padding: 0px;
@@ -140,6 +140,10 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 </section>
 
     <?php require_once("footer.php");?>
+   
+ 
+    
+    
     <script src="DataTables/datatables.min.js"></script>
     <script src="js/manualsearch.js"></script>
    
