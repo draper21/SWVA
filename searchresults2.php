@@ -17,9 +17,9 @@
 	} 
 	
 	$query = "SELECT ID, DEPARTMENT, EQUIPMENT, SIZE, NUMBER, EXTENSION, VENDOR, `VENDOR DWG NO`, `VENDOR JOB NO`, REVISION, DATE, WHO, DESCRIPTION, EQID, EQSUB, DRAW
-	  FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? AND EQSUB = ?"; //may change OR to something different later based on user needs
+	  FROM sheet1 WHERE DEPARTMENT = ? AND EQUIPMENT = ? AND EQID = ?"; //may change OR to something different later based on user needs
     $stmt = $database->prepare($query); 
-    $stmt->bind_param('sss', $deptID, $equipID, $eqSUB);
+    $stmt->bind_param('sss', $deptID, $equipID, $eqID);
 	$stmt->execute(); 
 	$res = $stmt->get_result();
 

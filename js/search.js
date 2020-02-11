@@ -12,6 +12,17 @@ $(document).ready(function () {
       });
    }
 
+   function searchResults2(){ 
+      $.ajax({
+            url: "searchresults2.php",
+            method: "GET",
+            dataType: 'HTML',
+            success: function (data) {
+              $('#myTable').empty().append(data);
+            }
+      });
+   }
+
    //function if all dropdowns are selected
    function searchResults3() {
       $.ajax({
@@ -93,7 +104,7 @@ $(document).ready(function () {
          },
          dataType: 'HTML',
          success: function (data) {
-            searchResults3();
+            searchResults2();
          }
       });
    });
