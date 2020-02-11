@@ -8,7 +8,7 @@ require_once("config\config.php")
 			display: none;
 		}
 	</style>
-	<section class="about section-margin mb-5" style="padding-top: 110px; min-height: 70vh;">
+	<section class="about section-margin mb-5" style="padding-top: 60px; min-height: 52vh;">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-md-5">
@@ -24,7 +24,7 @@ require_once("config\config.php")
 						<form>
 							<div class="form-group">
 								<label for="Username">Username</label>
-								<input type="username" name="username" id="username" class="form-control"
+								<input type="text" name="username" id="username" class="form-control"
 									placeholder="Enter Username" required='required' style="width:50%;max-width:80%;">
 							</div>
 							<div class="form-group">

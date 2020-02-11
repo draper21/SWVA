@@ -1,3 +1,4 @@
+<div class="footer navbar-fixed-bottom">
 <footer class="footer footer-bg">
 	<div class="container">
 		<div class="row">
@@ -41,3 +42,4 @@
 </body>
 
 </html>
+</div>
