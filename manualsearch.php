@@ -11,11 +11,17 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
 ?>
 <style>
     thead input {
-  width: 100%;
-  padding: 0px;
-  box-sizing: border-box;
+        width: 100%;
+        padding: 0px;
+        box-sizing: border-box;
   
 }
+    tfoot input {
+        width: 100%;
+        padding: 0px;
+        box-sizing: border-box;
+  
+    }
 #loading-image {
     display: none;
     text-align:center;
@@ -101,6 +107,26 @@ if ($_SESSION["empID"] == "Failed" || is_null($_SESSION["empID"]))
                     </thead>
                     <tbody id="myTable">
                     </tbody>
+                    <tfoot>
+                    <tr>
+                            <th scope="col" id="id">ID</th>
+                            <th scope="col">DEPARTMENT</th>
+                            <th scope="col">EQUIPMENT</th>
+                            <th scope="col">EQ-ID</th>
+                            <th scope="col">EQ-SUB</th>
+                            <th scope="col">SIZE</th>
+                            <th scope="col">NUM</th>
+                            <th scope="col">EXT</th>
+                            <th scope="col">VENDOR</th>
+                            <th scope="col">VEN. DWG</th>
+                            <th scope="col">VEN. JOB</th>
+                            <th scope="col">REV</th>
+                            <th scope="col">DATE</th>
+                            <th scope="col">BY</th>
+                            <th scope="col">DESCRIPTION</th>
+                            <th scope="col">DRAWING</th>
+                        </tr>
+                    </tfoot>
                 </table>
 
             </div>

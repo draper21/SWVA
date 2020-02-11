@@ -9,7 +9,7 @@ $(document).ready(function() {
 	//	}
     //    });
     
-        $('#results thead th').each( function () {
+        $('#results tfoot th').each( function () {
         var title = $(this).text();
         $(this).html( title );
         $(this).append( '<input type="text"/>' );
@@ -29,18 +29,18 @@ $(document).ready(function() {
 				success: function (data) {
                   $('#myTable').empty().append(data);
                   var table = $('#results').DataTable({
-                    "order": [],
-                    "columnDefs": [ {
-                    "targets": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
-                    "orderable": false
-                    } ]
+                   //"order": [],
+                   //"columnDefs": [ {
+                   //"targets": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
+                   //"orderable": false
+                   //} ]
                   });
 
                   $('#results').show();
 
                   table.columns().every( function () {
                     var that = this;
-                    $( 'input', this.header() ).on( 'keyup change clear', function () {
+                    $( 'input', this.footer() ).on( 'keyup change clear', function () {
                         if ( that.search() !== this.value ) {
                             that
                                 .search( this.value )
